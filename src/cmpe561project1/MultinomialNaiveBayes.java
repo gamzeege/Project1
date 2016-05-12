@@ -181,6 +181,9 @@ public class MultinomialNaiveBayes {
 		System.out.println("Number of incorrectly classified documents "+falses);
 		System.out.println("Micro Precision is "+ ((double)trues/falses));
 		System.out.println("Micro Recall is "+ ((double)trues/numbOfTestFiles));
+		double p=(double)trues/falses;
+		double r=(double)trues/numbOfTestFiles;
+		System.out.println("Micro F-value is "+ (2*p*r/(p+r)));
 	}
 	public static Object getKeyFromValue(Map hm, Object value) {
 		for (Object o : hm.keySet()) {
