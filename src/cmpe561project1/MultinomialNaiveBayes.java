@@ -133,7 +133,7 @@ public class MultinomialNaiveBayes {
 		for(File f:testFiles)
 		{
 			String[] words= f.getName().split("_");
-			System.out.print(f.getName()+" is classified as ");
+			//System.out.print(f.getName()+" is classified as ");
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String emptyLine= reader.readLine();
 			for(Class c:allClasses)
@@ -168,7 +168,7 @@ public class MultinomialNaiveBayes {
 			Collections.sort(mapValues);
 			Collections.reverse(mapValues);
 
-			System.out.println(getKeyFromValue(classifierValues,mapValues.get(0)));
+			//System.out.println(getKeyFromValue(classifierValues,mapValues.get(0)));
 			if(getKeyFromValue(classifierValues,mapValues.get(0)).toString().equals(words[0]))
 				trues++;
 			else
@@ -176,8 +176,11 @@ public class MultinomialNaiveBayes {
 			
 			classifierValues.clear();
 		}
-		System.out.println("Trues"+trues);
-		System.out.println("Falses"+falses);
+		System.out.println("===== Bag Of Words Representation =====");
+		System.out.println("Number of correctly classified documents "+trues);
+		System.out.println("Number of incorrectly classified documents "+falses);
+		System.out.println("Micro Precision is "+ ((double)trues/falses));
+		System.out.println("Micro Recall is "+ ((double)trues/numbOfTestFiles));
 	}
 	public static Object getKeyFromValue(Map hm, Object value) {
 		for (Object o : hm.keySet()) {
